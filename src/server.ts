@@ -9,7 +9,7 @@ import {
 import logger from "./config/logger.config";
 import { attachCorrelationIdMiddleware } from "./middlewares/correlation.middleware";
 import sequelize from "./db/models/sequelize";
-import Hotel from "./db/models/hotel";
+// import Hotel from "./db/models/hotel";
 const app = express();
 
 app.use(express.json());
@@ -25,14 +25,14 @@ app.listen(serverConfig.PORT, async () => {
   try {
     await sequelize.authenticate();
     logger.info("Database connection established successfully.");
-    const hotel = await Hotel.create({
-      name: "Hotel New York",
-      address: "123 Main St, New York, NY",
-      location: "New York",
-      rating: 4.7,
-      ratingCount: 10,
-    });
-    logger.info("Test hotel created successfully.", hotel.toJSON());
+    // const hotel = await Hotel.create({
+    //   name: "Hotel New York",
+    //   address: "123 Main St, New York, NY",
+    //   location: "New York",
+    //   rating: 4.7,
+    //   ratingCount: 10,
+    // });
+    // logger.info("Test hotel created successfully.", hotel.toJSON());
   } catch (error) {
     logger.error("Error occurred while creating test hotel.", error);
   }
