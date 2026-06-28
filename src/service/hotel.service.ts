@@ -3,6 +3,8 @@ import {
   createHotel,
   getHotelById,
   getAllHotels,
+  softDeleteHotel,
+  updateHote,
 } from "../repositories/hotel.repository";
 
 const blockListedAddresses = [
@@ -23,4 +25,15 @@ export async function getHotelByIdService(id: number) {
 export async function getAllHotelsService() {
   const hotels = await getAllHotels();
   return hotels;
+}
+export async function softDeleteHotelService(id: number) {
+  const hotel = await softDeleteHotel(id);
+  return hotel;
+}
+export async function updateHotelService(
+  id: number,
+  hotelData: Partial<createHotelDto>,
+) {
+  const hotel = await updateHote(id, hotelData);
+  return hotel;
 }
